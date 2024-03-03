@@ -1,0 +1,2 @@
+1- for returning a list of records with pagination we use the spring pageimpl class
+    - add the spring boot data starter jpa dependency to the pom file
