@@ -10,7 +10,7 @@ import java.util.UUID;
 public class BeerServiceImpl implements BeerService {
     @Override
     public BeerDTO findById(UUID id) {
-        return null;
+        return BeerDTO.builder().build();
     }
 
     @Override
