@@ -15,7 +15,8 @@ public class BeerServiceImpl implements BeerService {
 
     @Override
     public BeerDTO saveNew(BeerDTO beerDTO) {
-        return null;
+
+        return BeerDTO.builder().id(beerDTO.getId()).name(beerDTO.getName()).style(beerDTO.getStyle()).build();
     }
 
     @Override
