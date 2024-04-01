@@ -3,6 +3,8 @@ package haidar.springframework.msscbeerservice.web.controller;
 import haidar.springframework.msscbeerservice.services.BeerService;
 import haidar.springframework.msscbeerservice.web.model.BeerDTO;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,13 +15,11 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/beer/")
+@Slf4j
+@RequiredArgsConstructor
 public class BeerController {
 
     private final BeerService beerService;
-
-    public BeerController(BeerService beerService) {
-        this.beerService = beerService;
-    }
 
     @GetMapping("{id}")
     public ResponseEntity<BeerDTO> findById(@PathVariable("id") UUID id) {
