@@ -2,9 +2,11 @@ package haidar.springframework.msscbeerservice.web.controller;
 
 import haidar.springframework.msscbeerservice.services.BeerService;
 import haidar.springframework.msscbeerservice.web.model.BeerDTO;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -26,7 +28,7 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity saveNew(@RequestBody BeerDTO beerDTO) {
+    public ResponseEntity saveNew(@RequestBody @Validated BeerDTO beerDTO) {
         BeerDTO savedBeer = beerService.saveNew(beerDTO);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Location", "/api/v1/beer/".concat(savedBeer.getId().toString()));
@@ -34,7 +36,7 @@ public class BeerController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") UUID id, @RequestBody BeerDTO beerDTO) {
+    public ResponseEntity update(@PathVariable("id") UUID id, @RequestBody @Validated BeerDTO beerDTO) {
         beerService.update(id, beerDTO);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }

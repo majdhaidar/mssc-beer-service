@@ -6,4 +6,7 @@
 2- for adding property validation
     - add spring boot validation starter
     - use the annotations @Null, @NotNull, @Positive, @NotBlank
-    - in the endpoint controller beside reading the values we need to add @Valid
+    - in the endpoint controller beside reading the values we need to add @Validated
+
+3- to handle exceptions commonly under all the services we define a controller advice class
+    - we use this class to define our common exception handlers
