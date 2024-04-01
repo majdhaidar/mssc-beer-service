@@ -1,2 +1,9 @@
 1- for returning a list of records with pagination we use the spring pageimpl class
     - add the spring boot data starter jpa dependency to the pom file
+    - the repository should extend PagingAndSortingRepository<,>
+    - the dto that handles the returned data should extend PageImpl<?>
+
+2- for adding property validation
+    - add spring boot validation starter
+    - use the annotations @Null, @NotNull, @Positive, @NotBlank
+    - in the endpoint controller beside reading the values we need to add @Valid
