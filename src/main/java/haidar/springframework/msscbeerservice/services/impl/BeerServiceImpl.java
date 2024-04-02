@@ -1,5 +1,6 @@
 package haidar.springframework.msscbeerservice.services.impl;
 
+import haidar.springframework.msscbeerservice.domain.Beer;
 import haidar.springframework.msscbeerservice.services.BeerService;
 import haidar.springframework.msscbeerservice.web.model.BeerDTO;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,9 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
-    public BeerDTO saveNew(BeerDTO beerDTO) {
+    public Beer saveNew(BeerDTO beerDTO) {
 
-        return BeerDTO.builder().id(beerDTO.getId()).name(beerDTO.getName()).style(beerDTO.getStyle()).build();
+        return Beer.builder().id(UUID.randomUUID()).name(beerDTO.getName()).style(beerDTO.getStyle()).build();
     }
 
     @Override

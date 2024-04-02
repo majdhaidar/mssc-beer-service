@@ -1,8 +1,8 @@
 package haidar.springframework.msscbeerservice.web.controller;
 
+import haidar.springframework.msscbeerservice.domain.Beer;
 import haidar.springframework.msscbeerservice.services.BeerService;
 import haidar.springframework.msscbeerservice.web.model.BeerDTO;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -29,7 +29,7 @@ public class BeerController {
 
     @PostMapping
     public ResponseEntity saveNew(@RequestBody @Validated BeerDTO beerDTO) {
-        BeerDTO savedBeer = beerService.saveNew(beerDTO);
+        Beer savedBeer = beerService.saveNew(beerDTO);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Location", "/api/v1/beer/".concat(savedBeer.getId().toString()));
         return new ResponseEntity(httpHeaders, HttpStatus.CREATED);
